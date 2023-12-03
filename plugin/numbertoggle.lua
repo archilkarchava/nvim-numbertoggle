@@ -14,9 +14,11 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
    pattern = "*",
    group = augroup,
    callback = function()
-      if vim.o.nu then
-         vim.opt.relativenumber = false
-         vim.cmd "redraw"
-      end
+      vim.defer_fn(function()
+         if vim.o.nu then
+            vim.opt.relativenumber = false
+            vim.cmd "redraw"
+         end
+      end, 7)
    end,
 })
