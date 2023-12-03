@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
    group = augroup,
    callback = function()
       vim.defer_fn(function()
-         if vim.o.nu then
+         if vim.o.nu and vim.api.nvim_get_mode().mode:match("[ic]") then
             vim.opt.relativenumber = false
             vim.cmd "redraw"
          end
