@@ -19,6 +19,6 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
             vim.opt.relativenumber = false
             vim.cmd "redraw"
          end
-      end, 6)
+      end, 7)
    end,
 })
